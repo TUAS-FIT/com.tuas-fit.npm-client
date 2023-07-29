@@ -1,0 +1,18 @@
+{
+  "name": "com.tuas-fit.npm-client",
+  "version": "0.0.1",
+  "displayName": "NPM Client",
+  "description": "Editor extension for fetching and installing packages from TUAS-FIT NPM Server",
+  "unity": "2022.3",
+  "unityRelease": "5f1",
+  "documentationUrl": "",
+  "changelogUrl": "",
+  "licensesUrl": "",
+  "dependencies": {},
+  "keywords": [],
+  "author": {
+    "name": "TUAS-FIT",
+    "email": "turkugamelabdev@gmail.com",
+    "url": "https://github.com/TUAS-FIT"
+  }
+}

@@ -1,1 +1,1 @@
-# com.tuas-fit.npm-client
+# NPM Client package
