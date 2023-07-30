@@ -1,6 +1,6 @@
 {
   "name": "com.tuas-fit.npm-client",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "displayName": "NPM Client",
   "description": "Editor extension for fetching and installing packages from TUAS-FIT NPM Server",
   "unity": "2022.3",

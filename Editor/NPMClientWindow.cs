@@ -24,10 +24,10 @@ namespace NPMClient.Editor
         private const float showPasswordButtonWidth = 50f;
         private const float loginButtonWidth = 60f;
         
-        private const string registryURL   = "http://34.88.147.242:4873/";
-        private const string registryName  = "etn218n";
-        private const string registryScope = "com.etn218n";
-        private const string shortenRegistryURL  = "34.88.147.242:4873";
+        private const string registryURL   = "http://35.228.175.216:4873/";
+        private const string registryName  = "TUAS-FIT";
+        private const string registryScope = "com.tuas-fit";
+        private const string shortenRegistryURL  = "35.228.175.216:4873";
         private const string loginExecutableName = "npm-login";
         private const string jsonFileName = "npm-login.json";
 
