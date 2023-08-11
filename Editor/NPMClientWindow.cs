@@ -23,6 +23,7 @@ namespace NPMClient.Editor
         private const float labelWidth = 70f;
         private const float showPasswordButtonWidth = 50f;
         private const float loginButtonWidth = 60f;
+        private const float deleteButtonWidth = 160f;
         
         private const string registryURL   = "https://npm.dc.turkuamk.fi/";
         private const string registryName  = "TUAS-FIT";
@@ -43,6 +44,7 @@ namespace NPMClient.Editor
             DrawPasswordField();
             DrawEmailField();
             DrawLoginButton();
+            DrawDeleteCredentialsCachedButton();
         }
 
         private void DrawUsernameField()
@@ -93,11 +95,40 @@ namespace NPMClient.Editor
                 GUILayout.EndHorizontal();
             }
         }
+        
+        private void DrawDeleteCredentialsCachedButton()
+        {
+            GUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            if (GUILayout.Button("Delete cached credential", GUILayout.Width(deleteButtonWidth)))
+                DeleteCredentialFiles();
+            GUILayout.FlexibleSpace();
+            GUILayout.EndHorizontal();
+        }
 
         private void Login()
         {
             CreateLoginData();
             RunExternalLoginApp();
+        }
+
+        private void DeleteCredentialFiles()
+        {
+            var userDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            var npmrcFile = Path.Combine(userDirectory, ".npmrc");
+            var upmConfigFile = Path.Combine(userDirectory, ".upmconfig.toml");
+
+            if (File.Exists(npmrcFile))
+            {
+                File.Delete(npmrcFile);
+                Debug.Log("Successfully deleted .npmrc file");
+            }
+
+            if (File.Exists(upmConfigFile))
+            {
+                File.Delete(upmConfigFile);
+                Debug.Log("Successfully deleted .upmconfig.toml file");
+            }
         }
 
         private void CreateLoginData()
@@ -175,7 +206,7 @@ namespace NPMClient.Editor
                 var registryLine = lines.FirstOrDefault(l => l.Contains(shortenRegistryURL));
 
                 if (!string.IsNullOrEmpty(registryLine))
-                    return registryLine.Split('=', 2)[1];
+                    return registryLine.Split('=', 2)[1].Replace("\"", "");
             }
 
             return string.Empty;
@@ -189,7 +220,7 @@ namespace NPMClient.Editor
             File.WriteAllText(upmConfigFile, $"[npmAuth.\"{registryURL}\"]\n" +
                                              $"token = \"{token}\"\n" +
                                              $"email = \"{email}\"\n" +
-                                              "alwaysAuth = true");
+                                             $"alwaysAuth = true");
         }
         
         private void AddRegistryToProjectManifest()
