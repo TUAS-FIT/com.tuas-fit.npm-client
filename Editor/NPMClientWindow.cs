@@ -25,10 +25,10 @@ namespace NPMClient.Editor
         private const float loginButtonWidth = 60f;
         private const float deleteButtonWidth = 160f;
         
-        private const string registryURL   = "https://npm.dc.turkuamk.fi/";
+        private const string registryURL   = "https://npm.turkugamelab.fi/";
         private const string registryName  = "TUAS-FIT";
         private const string registryScope = "com.tuas-fit";
-        private const string shortenRegistryURL  = "npm.dc.turkuamk.fi";
+        private const string shortenRegistryURL  = "npm.turkugamelab.fi";
         private const string loginExecutableName = "npm-login";
         private const string jsonFileName = "npm-login.json";
 
